@@ -1,0 +1,13 @@
+predictions_csvs/
+predictions_bids/
+__pycache__/
+/__pycache__
+__pycache__
+**/__pycache__/
+models_hpt/
+.ipynb_checkpoints/
+.ipynb_checkpoints
+ipynb_checkpoints
+mlruns/
+tmp_data/
+logs/
