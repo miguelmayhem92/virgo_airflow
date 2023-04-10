@@ -1,11 +1,11 @@
 import pandas as pd
 import os
 from virgo_functions.prepro_data_forecast import split_data, WindowGenerator
-from virgo_functions.configs import data_configs
+from virgo_functions.configs import data_configs, low_finder_configs
 from virgo_functions.mlflow_functions import call_params_from_mlflow
 
 split_config = data_configs.split_config
-
+features = low_finder_configs.features
 main_path = os.getcwd()
 
 class call_mlflow():
@@ -81,4 +81,3 @@ def apply_forecast():
     dataset = pd.concat(dataframes)
     
     dataset.to_csv(f'{main_path}/tmp_data/forecasts.csv', header = True, index = False)
-

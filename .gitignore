@@ -11,3 +11,4 @@ ipynb_checkpoints
 mlruns/
 tmp_data/
 logs/
+client_secrets.json

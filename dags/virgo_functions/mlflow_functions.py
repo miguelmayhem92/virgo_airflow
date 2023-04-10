@@ -38,3 +38,27 @@ def call_params_from_mlflow(self, call_model = False):
             print('method 3 worded')
 
             self.model = model 
+
+def call_bidfinder_model():
+
+    client = MlflowClient()
+
+    model_name = f'bid_finder_models'
+    latest_version_info = client.get_latest_versions(model_name, stages=["Production"])
+    latest_production_version = latest_version_info[0].version
+    model_version = latest_production_version
+    model_version = model_version
+
+    for mv in client.search_model_versions(filter_string = f'{model_name}'):
+        mv = dict(mv)
+        if mv['version'] == latest_production_version:
+            run_id = mv['run_id']
+            break
+
+    path = os.getcwd()
+    model = mlflow.pyfunc.load_model(
+        model_uri=f"{path}/mlruns/{run_id}/artifacts/bid_finder-run",
+        suppress_warnings = True
+    )
+
+    return model 

@@ -10,7 +10,7 @@ from virgo_functions.configs import data_configs
 import os
 
 
-def execute_raw_data():
+def execute_raw_data_forecast():
 
     main_path = os.getcwd()
 
@@ -71,7 +71,5 @@ def execute_raw_data():
         datasets.append(raw_data)
 
     dataset = pd.concat(datasets)
-    
     dataset.to_csv(f'{main_path}/tmp_data/raw_data.csv', header = True, index = False)
-
 

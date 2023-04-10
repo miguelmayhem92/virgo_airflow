@@ -6,7 +6,6 @@ from virgo_functions.mlflow_functions import call_params_from_mlflow
 
 main_path = os.getcwd()
 
-
 class object_feature_eng():
     def __init__(self, stock_code, prefix,raw_data):
         self.stock_code = stock_code
@@ -102,7 +101,7 @@ class object_feature_eng():
         )
 
 
-def apply_feature_engine():
+def apply_feature_engine_forecast():
 
     raw_data = pd.read_csv(f'{main_path}/tmp_data/raw_data.csv')
     stock_codes = raw_data.stock_code.unique()
@@ -122,5 +121,3 @@ def apply_feature_engine():
 
     target_data_export = pd.concat(dataframes)
     target_data_export.to_csv(f'{main_path}/tmp_data/target_data.csv', header = True, index = False)
-    
-
