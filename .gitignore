@@ -12,3 +12,4 @@ mlruns/
 tmp_data/
 logs/
 client_secrets.json
+settings.yaml

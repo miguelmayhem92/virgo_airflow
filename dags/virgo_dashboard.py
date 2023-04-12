@@ -26,7 +26,7 @@ with DAG(
     start= DummyOperator(task_id='start')
 
     ### forecasting flow
-
+    
     get_raw_data_forecast = PythonOperator(
         task_id='extract_raw_data_forecast',
         python_callable= execute_raw_data_forecast
@@ -65,7 +65,7 @@ with DAG(
         task_id="create_dashboard",
         python_callable= execute_dashboard
         )
-
+    
     send_dashboard = PythonOperator(
         task_id='send_dashboard',
         python_callable= send_virgo_dashboard
@@ -81,3 +81,5 @@ with DAG(
     start >> get_raw_data_bidfinder >> get_feat_eng_data_bidfinder >> get_bidfinder           
 
     [get_forecasting, get_bidfinder] >> create_dashboard >> send_dashboard >> end
+
+    # send_dashboard >> end
